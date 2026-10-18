@@ -74,9 +74,7 @@ the browser, not from inside the container.
 - Dev tickets: <http://localhost:3000/dev>
 - Prod tickets: <http://localhost:3000/prod>
 - Dev backend UI: <http://localhost:3001/>
-- Dev API: <http://localhost:3001/api/tickets>
 - Prod backend UI: <http://localhost:3002/>
-- Prod API: <http://localhost:3002/api/tickets>
 - MongoDB (for Compass etc.): `mongodb://localhost:27017`
 
 ---
@@ -129,12 +127,6 @@ multienv-deployment-niraj/
 │   └── src/
 │       ├── App.js
 │       └── pages/  (Home.js, Tickets.js)
-├── docs/
-│   ├── DEPLOYMENT-GUIDE.md
-│   ├── TESTING-EVIDENCE.md
-│   ├── ASSUMPTIONS-AND-LIMITATIONS.md
-│   ├── TROUBLESHOOTING.md
-│   └── VIVA-PREP.md
 ├── evidence/          (screenshots)
 └── submission/submission-info.txt
 ```
