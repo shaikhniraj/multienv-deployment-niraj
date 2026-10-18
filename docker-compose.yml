@@ -1,0 +1,55 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    networks:
+      - multienvnetwork
+    volumes:
+      - mongo-data:/data/db
+
+  backend-dev:
+    build:
+      context: ./backend/dev
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    networks:
+      - multienvnetwork
+    env_file:
+      - ./backend/dev/.env
+    environment:
+      - ENV=dev
+    depends_on:
+      - mongo
+
+  backend-prod:
+    build:
+      context: ./backend/prod
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    networks:
+      - multienvnetwork
+    env_file:
+      - ./backend/prod/.env
+    environment:
+      - ENV=prod
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - multienvnetwork
+
+networks:
+  multienvnetwork:
+    driver: bridge
+
+volumes:
+  mongo-data:
