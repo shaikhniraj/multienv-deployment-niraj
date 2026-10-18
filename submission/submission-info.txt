@@ -1,0 +1,43 @@
+Student Name: Niraj Ismail Shaikh
+
+Repository URL: https://github.com/shaikhniraj/multienv-deployment-niraj
+
+Deployment Status: Working
+
+Access URLs:
+- Development: http://localhost:3000/dev
+- Production:  http://localhost:3000/prod
+- Frontend:    http://localhost:3000
+
+Additional endpoints:
+- Development backend UI:  http://localhost:3001/
+- Development backend API: http://localhost:3001/api/tickets
+- Production backend UI:   http://localhost:3002/
+- Production backend API:  http://localhost:3002/api/tickets
+- MongoDB (host access):   mongodb://localhost:27017
+
+Deployment Environment: Local workstation - Windows 11 with Docker Desktop
+(WSL 2 backend). The local-environment option was used rather than EC2; the
+equivalent EC2 instance sizing and security group configuration is documented
+in section 2.4 of docs/DEPLOYMENT-GUIDE.md.
+
+Services Running: 4 containers via Docker Compose
+- frontend     (React, node:20-alpine)    port 3000
+- backend-dev  (Flask, python:3.9-slim)   port 3001
+- backend-prod (Flask, python:3.9-slim)   port 3002
+- mongo        (mongo:7)                  port 27017
+Network: multienvnetwork (user-defined Docker bridge)
+
+Note: all URLs use localhost because the frontend's API calls are made by the
+browser on the Docker host.
+
+Documentation:
+- README.md                            Quick start, architecture, verification
+- docs/DEPLOYMENT-GUIDE.md             Full deployment guide
+- docs/TESTING-EVIDENCE.md             Testing evidence index
+- docs/ASSUMPTIONS-AND-LIMITATIONS.md  Assumptions and limitations
+- docs/TROUBLESHOOTING.md              Troubleshooting guide
+- docs/VIVA-PREP.md                    Demonstration script
+- evidence/screenshots/                Screenshot evidence
+
+Date of Submission: 18-10-2026
